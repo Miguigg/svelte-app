@@ -1,8 +1,11 @@
 <script>
     import TestComponent from "../components/test-component.svelte";
+    import Cuerpo from "../components/App.svelte";
+    import Colores from "../components/inputList.svelte";
+    import ListaComida from "../components/listaComida.svelte";
 </script>
 
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
-
 <TestComponent name="someone"/>
+<Cuerpo name="Mano"/>
+<Colores/>
+<ListaComida/>
