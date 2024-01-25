@@ -13,7 +13,7 @@ function eliminarElemento(){
 }
 
 </script>
-
+<!--Bucle each usando un elemento id como referencia para poder eliminar un valor-->
 {#each things as elemento(elemento.id)}
     <Things nombre={elemento.name}/>
 {/each}

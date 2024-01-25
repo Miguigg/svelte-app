@@ -3,8 +3,21 @@
     let seleccionado = lista[0]
 </script>
 
+
+<!--
+
+En los eventos de botones (por ejemplo) se le pueden meter modificadores
+
+preventDefault — calls event.preventDefault() before running the handler. Useful for client-side form handling, for example.
+once — remove the handler after the first time it run
+
+https://learn.svelte.dev/tutorial/event-modifiers
+	
+-->
+
 <div>
     <p style="color: {seleccionado}">Selecciona color</p>
+	<!--Bucle each por la lista-->
     {#each lista as color}
         <button
         aria-current={seleccionado === color}
@@ -14,6 +27,13 @@
         ></button>
     {/each}
 </div>
+
+
+<!--El |once hace que solo funcione una vez-->
+<button on:click|once={()=>alert('Click una y no más')}>
+	Click
+</button>
+
 
 <style>
 	h1 {
