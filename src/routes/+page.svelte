@@ -8,9 +8,15 @@
     import CicloDeVida from "../components/cicloDeVida.svelte";
     import Mostrar from "../components/stores/mostrar.svelte";
     import Motion from "../components/parte2/motion.svelte";
+    import Teclado from "../components/parte2/teclado.svelte";
     function forward(){
         alert('forward')
     }
+    /**
+	 * @type {string}
+	 */
+    let pin 
+    $: view = pin ? pin.replace(/\d(?!$)/g, '•') : 'Introduce tu pin';
 </script>
 
 <div class="parent">
@@ -19,7 +25,11 @@
         <Cuerpo name="Mano"/>
         <Colores/>
         <Mostrar/>
-        <Motion/>
+        <Motion/><br/><br/>
+        <h1 style="opacity: {pin ? 1 : 0.4}">{view}</h1>
+        <Teclado
+        bind:value = {pin}
+        />
     </div>
     <div class="div2">
         <ListaComida/>
