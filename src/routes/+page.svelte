@@ -1,12 +1,13 @@
 <script>
-    import TestComponent from "../components/test-component.svelte";
     import Cuerpo from "../components/App.svelte";
     import Colores from "../components/inputList.svelte";
     import ListaComida from "../components/listaComida.svelte";
     import DomForward from "../components/DomForward.svelte";
     import Inputs from "../components/inputs.svelte";
 	import InputList from "../components/inputList.svelte";
-
+    import CicloDeVida from "../components/cicloDeVida.svelte";
+    import Mostrar from "../components/stores/mostrar.svelte";
+    import Motion from "../components/parte2/motion.svelte";
     function forward(){
         alert('forward')
     }
@@ -17,12 +18,17 @@
        <!--<TestComponent name="someone"/>-->
         <Cuerpo name="Mano"/>
         <Colores/>
+        <Mostrar/>
+        <Motion/>
     </div>
     <div class="div2">
         <ListaComida/>
         <DomForward on:click={forward}/>
         <InputList/>
         <Inputs/>
+        <div class="divimg">
+            <CicloDeVida/>
+        </div>
     </div>
 </div>
 
@@ -36,5 +42,10 @@
 
     .div1 { grid-area: 1 / 1 / 2 / 2; }
     .div2 { grid-area: 1 / 2 / 2 / 3; }
-
+    .divimg{
+        position:fixed;
+        bottom:0;
+        left:5%;
+        width:auto;
+    }
 </style>

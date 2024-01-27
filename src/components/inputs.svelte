@@ -1,7 +1,7 @@
 <script>
     let valor = 'init'
     let checkBoxValue = false;
-
+    let texto = `Hola mundo`
     let valoresSelect = [
         {
             id: 1,
@@ -22,8 +22,10 @@
 	 */
     let opcionSeleccionada;
     function procesarForm(){
-
+        alert(opcionSeleccionada)
     }
+    //array donde se van metiendo los elemetos seleccionados
+    let comidas = []
 </script>
 
 <input bind:value={valor}/>
@@ -57,4 +59,44 @@
     {/each}
 
     </select>
+    <button type="submit">Mandar</button>
 </form>
+
+{#each ["cookies","Bread","Meat","Milk"] as elemet}
+    <label>
+        <input
+        type="checkbox"
+        name="food"
+        value={elemet}
+        bind:group={comidas}
+        />
+        {elemet}
+    </label>
+{/each}
+
+{#if comidas.length === 0}
+<p>No hay elemetos seleccionados</p>
+{:else}
+<p>Has seleccionado</p>
+{/if}
+
+<div class="grid">
+    Input
+    <textarea bind:value={texto}></textarea>
+    <p>{texto}</p>
+</div>
+
+<style>
+	.grid {
+		display: grid;
+		grid-template-columns: 5em 1fr;
+		grid-template-rows: 1fr 1fr;
+		grid-gap: 1em;
+		height: 100%;
+	}
+
+	textarea {
+		flex: 1;
+		resize: none;
+	}
+</style>
